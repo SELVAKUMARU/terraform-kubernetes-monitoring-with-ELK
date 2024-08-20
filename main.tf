@@ -62,7 +62,7 @@ resource "helm_release" "elasticsearch" {
   }
 
   values = [
-    file("/home/francium/Downloads/elk-helm-deploy/.terraform/modules/monitoring-with-elastic-stack/configs/elasticsearch/values.yaml")
+    file("${path.module}/configs/elasticsearch/values.yaml")
   ]
 
 }
@@ -108,7 +108,7 @@ resource "helm_release" "logstash" {
   }
 
   values = [
-    file("/home/francium/Downloads/elk-helm-deploy/.terraform/modules/monitoring-with-elastic-stack/configs/logstash/values.yaml")
+    file("${path.module}/configs/logstash/values.yaml")
   ]
 
 }
@@ -149,7 +149,7 @@ resource "helm_release" "filebeat" {
   }
 
   values = [
-    file("/home/francium/Downloads/elk-helm-deploy/.terraform/modules/monitoring-with-elastic-stack/configs/filebeat/values.yaml")
+    file("${path.module}/configs/filebeat/values.yaml")
   ]
 
 }
@@ -210,7 +210,7 @@ resource "helm_release" "kibana" {
   }
 
   values = [
-    file("/home/francium/Downloads/elk-helm-deploy/.terraform/modules/monitoring-with-elastic-stack/configs/kibana/values.yaml")
+    file("${path.module}/configs/kibana/values.yaml")
   ]
 
 }
