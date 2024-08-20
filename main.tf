@@ -1,9 +1,10 @@
 provider "kubernetes" {
-  config_path = "~/.kube/server.conf"
+  config_path = "~/.kube/config"
 }
+
 provider "helm" {
   kubernetes {
-    config_path = "~/.kube/server.conf"
+    config_path = "~/.kube/config"
   }
 }
 
@@ -62,7 +63,7 @@ resource "helm_release" "elasticsearch" {
   }
 
   values = [
-    file("./configs/elasticsearch/values.yaml")
+    file(".terraform/modules/monitoring-with-elastic-stack/configs/elasticsearch/values.yaml")
   ]
 
 }
@@ -108,7 +109,7 @@ resource "helm_release" "logstash" {
   }
 
   values = [
-    file("./configs/logstash/values.yaml")
+    file(".terraform/modules/monitoring-with-elastic-stack/configs/logstash/values.yaml")
   ]
 
 }
@@ -149,7 +150,7 @@ resource "helm_release" "filebeat" {
   }
 
   values = [
-    file("./configs/filebeat/values.yaml")
+    file(".terraform/modules/monitoring-with-elastic-stack/configs/filebeat/values.yaml")
   ]
 
 }
@@ -210,7 +211,7 @@ resource "helm_release" "kibana" {
   }
 
   values = [
-    file("./configs/kibana/values.yaml")
+    file(".terraform/modules/monitoring-with-elastic-stack/configs/kibana/values.yaml")
   ]
 
 }
