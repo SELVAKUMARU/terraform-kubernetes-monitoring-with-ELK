@@ -63,7 +63,7 @@ resource "helm_release" "elasticsearch" {
   }
 
   values = [
-    file(".terraform/modules/monitoring-with-elastic-stack/configs/elasticsearch/values.yaml")
+    file(".terraform/modules/monitoring-with-elastic-stack/configs/elasticsearch/values.yml")
   ]
 
 }
@@ -90,7 +90,7 @@ resource "helm_release" "logstash" {
 
   set {
     name  = "resources.requests.memory"
-    value = var.logstash_requests_cpu
+    value = var.logstash_requests_memory
   }
 
   set {
@@ -109,7 +109,7 @@ resource "helm_release" "logstash" {
   }
 
   values = [
-    file(".terraform/modules/monitoring-with-elastic-stack/configs/logstash/values.yaml")
+    file(".terraform/modules/monitoring-with-elastic-stack/configs/logstash/values.yml")
   ]
 
 }
@@ -150,7 +150,7 @@ resource "helm_release" "filebeat" {
   }
 
   values = [
-    file(".terraform/modules/monitoring-with-elastic-stack/configs/filebeat/values.yaml")
+    file(".terraform/modules/monitoring-with-elastic-stack/configs/filebeat/values.yml")
   ]
 
 }
@@ -211,7 +211,7 @@ resource "helm_release" "kibana" {
   }
 
   values = [
-    file(".terraform/modules/monitoring-with-elastic-stack/configs/kibana/values.yaml")
+    file(".terraform/modules/monitoring-with-elastic-stack/configs/kibana/values.yml")
   ]
 
 }
