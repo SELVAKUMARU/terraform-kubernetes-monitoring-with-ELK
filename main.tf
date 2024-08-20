@@ -62,7 +62,7 @@ resource "helm_release" "elasticsearch" {
   }
 
   values = [
-    file("./terraform-kubernetes-monitoring-with-ELK/configs/elasticsearch/values.yaml")
+    file(".terraform/modules/monitoring-with-elastic-stack/configs/elasticsearch/values.yaml")
   ]
 
 }
@@ -108,10 +108,12 @@ resource "helm_release" "logstash" {
   }
 
   values = [
-    file("./terraform-kubernetes-monitoring-with-ELK/configs/logstash/values.yaml")
+    file(".terraform/modules/monitoring-with-elastic-stack/configs/logstash/values.yaml")
   ]
 
 }
+
+#filebeat
 
 resource "helm_release" "filebeat" {
 
@@ -147,10 +149,12 @@ resource "helm_release" "filebeat" {
   }
 
   values = [
-    file("./terraform-kubernetes-monitoring-with-ELK/configs/filebeat/values.yaml")
+    file(".terraform/modules/monitoring-with-elastic-stack/configs/filebeat/values.yaml")
   ]
 
 }
+
+#kibana
 
 resource "helm_release" "kibana" {
 
@@ -206,7 +210,7 @@ resource "helm_release" "kibana" {
   }
 
   values = [
-    file("./terraform-kubernetes-monitoring-with-ELK/configs/kibana/values.yaml")
+    file(".terraform/modules/monitoring-with-elastic-stack/configs/kibana/values.yaml")
   ]
 
 }
