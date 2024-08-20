@@ -62,7 +62,7 @@ resource "helm_release" "elasticsearch" {
   }
 
   values = [
-    file("${path.module}/configs/elasticsearch/values.yaml")
+    file("./configs/elasticsearch/values.yaml")
   ]
 
 }
@@ -108,7 +108,7 @@ resource "helm_release" "logstash" {
   }
 
   values = [
-    file("${path.module}/configs/logstash/values.yaml")
+    file("./configs/logstash/values.yaml")
   ]
 
 }
@@ -149,7 +149,7 @@ resource "helm_release" "filebeat" {
   }
 
   values = [
-    file("${path.module}/configs/filebeat/values.yaml")
+    file("./configs/filebeat/values.yaml")
   ]
 
 }
@@ -210,7 +210,7 @@ resource "helm_release" "kibana" {
   }
 
   values = [
-    file("${path.module}/configs/kibana/values.yaml")
+    file("./configs/kibana/values.yaml")
   ]
 
 }
