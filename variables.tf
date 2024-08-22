@@ -3,6 +3,11 @@ variable "namespace" {
     description = "all the resources will deploy here"
 }
 
+variable "kubeconfig" {
+  type    = string
+  default = "/var/lib/jenkins/.kube/config"
+}
+
 ## elasticsearch
 
 variable "elasticsearch_replicas" {
