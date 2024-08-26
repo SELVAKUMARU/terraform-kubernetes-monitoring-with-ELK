@@ -12,10 +12,11 @@ provider "helm" {
 resource "helm_release" "elasticsearch" {
 
   name = "elasticsearch"
-
   repository = "https://helm.elastic.co"
   chart      = "elasticsearch"
   namespace  = var.namespace
+  atomic = true
+  cleanup_on_fail = true
 
   set {
     name  = "replicas"
@@ -77,6 +78,8 @@ resource "helm_release" "logstash" {
   repository = "https://helm.elastic.co"
   chart      = "logstash"
   namespace  = var.namespace
+  atomic = true
+  cleanup_on_fail = true
 
   set {
     name  = "replicas"
@@ -123,6 +126,8 @@ resource "helm_release" "filebeat" {
   repository = "https://helm.elastic.co"
   chart      = "filebeat"
   namespace  = var.namespace
+  atomic = true
+  cleanup_on_fail = true
 
   set {
     name  = "replicas"
@@ -164,6 +169,8 @@ resource "helm_release" "kibana" {
   repository = "https://helm.elastic.co"
   chart      = "kibana"
   namespace  = var.namespace
+  atomic = true
+  cleanup_on_fail = true
 
   set {
     name  = "replicas"
